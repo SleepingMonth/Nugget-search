@@ -296,6 +296,34 @@
   transform: rotate(15deg);
 }
 
+ .ai-container {
+  position: absolute;
+  top: 20px;
+  right: 140px; 
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 212, 255, 0.8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+      
+ .ai-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+      
+.ai-button:hover {
+  color: #ff8800;
+  transform: rotate(15deg);
+}
     </style>
   </head>
   <body>
@@ -312,6 +340,12 @@
     <i class="fa-brands fa-app-store-ios"></i>
   </button>
 </div>
+    
+   <div class="ai-container">
+     <button class="ai-button" onclick="window.location.href='comingsoon.html'">
+       <i class="fa-solid fa-robot"></i>
+     </button>
+    </div>
 
 
     <div class="backdrop-box">
@@ -333,7 +367,7 @@
       </a>
     </div>
 
-    <!--Settings page as a(pop up) instead of html page-->
+  
     <div id="settings-popup" class="popup-container">
   <div class="popup-content">
     <span class="close-button">&times;</span>
@@ -342,11 +376,11 @@
     <label for="site-name">Custom Site Name:</label>
 <input type="text" id="site-name" placeholder="Enter your custom site name..." />
 
-<!-- Icon Image URL Field -->
+
 <label for="icon-url">Icon Image URL:</label>
 <input type="url" id="icon-url" placeholder="Enter image URL..." />
 
-<!-- Icon Image Upload Field -->
+
 <label for="icon-upload">Or Upload Icon:</label>
 <input type="file" id="icon-upload" accept="image/*" />
 
@@ -379,12 +413,12 @@
       });
 
        
-      // Event listener for opening the popup
+      
 document.querySelector('.settings-button').addEventListener('click', function() {
   document.getElementById('settings-popup').style.display = 'flex';
 });
 
-// Event listener for closing the popup
+
 document.querySelector('.close-button').addEventListener('click', function() {
   document.getElementById('settings-popup').style.display = 'none';
 });
@@ -393,13 +427,13 @@ document.querySelector('.close-button').addEventListener('click', function() {
   const iconUrl = document.getElementById('icon-url').value;
   const iconUpload = document.getElementById('icon-upload').files[0];
 
-  // Change site name based on input
+  
   if (siteName) {
     document.title = siteName;
     document.querySelector('h1').textContent = siteName;
   }
 
-  // Handle custom icon - prioritize uploaded file over URL
+ 
   const iconElement = document.querySelector('link[rel="icon"]') || document.createElement('link');
   iconElement.rel = 'icon';
 
@@ -415,7 +449,7 @@ document.querySelector('.close-button').addEventListener('click', function() {
     document.head.appendChild(iconElement);
   }
 
-  // Close the settings popup after saving
+
   document.getElementById('settings-popup').style.display = 'none';
 });
     </script>
