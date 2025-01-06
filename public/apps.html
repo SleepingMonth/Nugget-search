@@ -1,21 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      
-    </style>
-    <title>Nugget Apps</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps - Nugget</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
 
+    body {
+      background: linear-gradient(145deg, #121212, #070707);
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00d4ff;
+      margin: 30px 0;
+      text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .apps-container {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr); 
+      gap: 20px; 
+      justify-items: center;
+      padding: 20px;
+      margin-top: 20px;
+      width: 90%; 
+      max-width: 1200px; 
+    }
+
+    .app-icon {
+      text-align: center;
+    }
+
+    .app-icon button {
+      border: none;
+      background-color: rgba(0, 212, 255, 0.8);
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+      width: 100px; /* Adjusted button size */
+      height: 100px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .app-icon button:hover {
+      background-color: #ff8800;
+      transform: scale(1.1);
+      box-shadow: 0px 8px 20px rgba(255, 136, 0, 0.6);
+    }
+
+    .app-icon img {
+      width: 50px; 
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      pointer-events: none; 
+    }
+
+    .app-icon p {
+      margin-top: 5px;
+      color: #f0f0f0;
+      font-size: 0.9em;
+      pointer-events: none; 
+    }
+
+    .search-container {
+      margin: 15px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 300px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.1em;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+      outline: none;
+    }
+
+    .error-msg {
+      color: #ff8800;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      padding: 10px 15px;
+      background-color: #00d4ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #ff8800;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
 <body>
-    <div class="search-bar" style="display: flex; justify-content: center;">
-        <form id="searchForm" onsubmit="return false;">
-            <input id="searchApps" placeholder="Search Apps" class="searchbar">
-        </form>
+  <button class="back-button" onclick="window.location.href='index.html'">&lt; Back</button>
+
+  <h1>Apps</h1>
+
+  <div class="search-container">
+    <input type="text" id="search-app" placeholder="Search for an app..." oninput="searchApp()">
+    <p id="error-message" class="error-msg">App not found😵!</p>
+  </div>
+
+  <div class="apps-container" id="apps-container">
+   
+    <div class="app-icon">
+      <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://google.com/');">
+        <img src="assets/img/google.png" alt="Google">
+      </button>
+      <p>Google</p>
     </div>
-    <div class="app-links"></div>
+
+    <div class="app-icon">
+      <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://tiktok.com/');">
+        <img src="assets/img/tiktok.png" alt="TikTok">
+      </button>
+      <p>TikTok</p>
+    </div>
+
+    <div class="app-icon">
+      <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://youtube.com/');">
+        <img src="assets/img/youtube.png" alt="YouTube">
+      </button>
+      <p>YouTube</p>
+    </div>
+
+
+    <div class="app-icon">
+        <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://now.gg/');">
+          <img src="assets/img/" alt="Now.gg">
+        </button>
+        <p>Now.gg</p>
+      </div>
+
+
+      <div class="app-icon">
+        <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://crazygames.com/');">
+          <img src="assets/img" alt="CrazyGames">
+        </button>
+        <p>CrazyGames</p>
+      </div>
+
+
+      <div class="app-icon">
+        <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://discord.com/login');">
+          <img src="assets/img" alt="Discord">
+        </button>
+        <p>Discord</p>
+      </div>
+
+
+      <div class="app-icon">
+        <button onclick="location.href = __uv$config.prefix + __uv$config.encodeUrl('https://vscode.de/');">
+          <img src="assets/img" alt="VsCode">
+        </button>
+        <p>VsCode</p>
+      </div>
+  </div>
+
+  <script src="assets/subtitle.js"></script>
+  <script src="./uv/uv.bundle.js"></script>
+  <script src="./uv/uv.config.js"></script>
+  <script src="./assets/register-sw.js"></script>
+  <script src="./assets/script.js" defer></script>
+  <script type='text/javascript' src='//pl24861285.profitablecpmrate.com/33/4c/30/334c30f879489aeeab667dcaac68e311.js'></script>
+
+  <script>
+    function searchApp() {
+      const searchQuery = document.getElementById('search-app').value.toLowerCase();
+      const apps = document.querySelectorAll('.app-icon');
+      let found = false;
+
+      apps.forEach(app => {
+        const appName = app.querySelector('p').textContent.toLowerCase();
+        if (appName.includes(searchQuery)) {
+          app.style.display = 'block';
+          found = true;
+        } else {
+          app.style.display = 'none';
+        }
+      });
+
+      document.getElementById('error-message').style.display = found ? 'none' : 'block';
+    }
+  </script>
 </body>
-<script src="/js/apps.js"></script>
+</html>
